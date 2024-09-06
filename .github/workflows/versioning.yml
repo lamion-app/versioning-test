@@ -30,6 +30,6 @@ jobs:
       - name: Write version to file
         uses: jaywcjlove/github-action-modify-file-content@v2.0.3
         with:
-          path: version.txt
+          path: "version.txt"
           body: "app version ${{ steps.bump_version.outputs.next-version }}",
           overwrite: 'true'
