@@ -17,12 +17,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get next version
-        id: get_next_version
-        uses: thenativeweb/get-next-version@main
+      - name: Run GitHub Actions Version Updater
+        uses: saadmk11/github-actions-version-updater@v0.8.1
         with:
-          prefix: 'v' # optional, defaults to ''
-      - name: Show the next version
-        run: |
-          echo ${{ steps.get_next_version.outputs.version }}
-          echo ${{ steps.get_next_version.outputs.hasNextVersion }}
+          # [Required] Access token with `workflow` scope.
+          token: ${{ secrets.WORKFLOW_SECRET }}
