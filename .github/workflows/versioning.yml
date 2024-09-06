@@ -28,6 +28,7 @@ jobs:
         run: echo ${{ steps.bump_version.outputs.next-version }}
 
       - name: Write version to file
+        id: write_version
         uses: jaywcjlove/github-action-modify-file-content@v2.0.3
         with:
           path: "version.txt"
