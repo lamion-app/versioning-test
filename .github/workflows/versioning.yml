@@ -17,8 +17,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Run GitHub Actions Version Updater
-        uses: saadmk11/github-actions-version-updater@v0.8.1
+      - id: new_version
+        uses: nomasystems/update-project-version@latest
         with:
-          # [Required] Access token with `workflow` scope.
-          token: ${{ secrets.WORKFLOW_SECRET }}
+          tag-prefix: "v"
+          version-files: "file.txt"
