@@ -26,3 +26,10 @@ jobs:
 
       - name: Do something with your bumped release version
         run: echo ${{ steps.bump_version.outputs.next-version }}
+
+      - name: Write version to file
+        uses: jaywcjlove/github-action-modify-file-content@main
+        with:
+          path: version.txt
+          body: "app version ${{ steps.bump_version.outputs.next-version }}",
+          overwrite: 'true'
