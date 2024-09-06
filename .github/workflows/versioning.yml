@@ -17,8 +17,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - id: new_version
-        uses: nomasystems/update-project-version@latest
+      - name: Bump release version
+        id: bump_version
+        uses: christian-draeger/increment-semantic-version@1.0.3
         with:
-          tag-prefix: "v"
-          version-files: "file.txt"
+          current-version: '2.11.7-alpha3'
+          version-fragment: 'feature'
+
+      - name: Do something with your bumped release version
+        run: echo ${{ steps.bump_version.outputs.next-version }}
